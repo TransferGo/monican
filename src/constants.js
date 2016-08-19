@@ -1,0 +1,4 @@
+export default {
+
+    ACTION_ON_MOUNT_STORES: 'MONICAN_MOUNTING_STORES',
+};
