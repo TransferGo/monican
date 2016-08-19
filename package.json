@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TransferGo/monican.git"
+    "url": "git+https://github.com/TransferGo/monican.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +23,10 @@
     "actions"
   ],
   "author": "TransferGo Ltd",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TransferGo/monican/issues"
+  },
+  "homepage": "https://github.com/TransferGo/monican#readme",
+  "devDependencies": {}
 }
