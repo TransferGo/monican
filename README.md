@@ -14,7 +14,7 @@ npm install monican
 
 ### Example
 
-```
+```javascript
 import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import { View } from 'monican';
@@ -87,7 +87,11 @@ const ParentView = View({
         return (
             <div>
                 <h2>Parent view</h2>
-                <p>Button has been clicked: { this.props.parentStore.clickCounter } times.</p>
+                <p>{
+                    'Button has been clicked: ' +
+                    this.props.parentStore.clickCounter +
+                    ' times.'
+                }</p>
                 <ChildView/>
             </div>
         );
