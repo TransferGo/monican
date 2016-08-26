@@ -11,6 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "flux": "^2.1.1",
+    "object-assign": "^4.1.0",
     "ramda": "^0.22.1",
     "react": "^0.14.0 || ^15.0.0"
   },
