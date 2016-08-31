@@ -72,7 +72,7 @@ class Store extends ChangeEmitter {
             props: this.parent.props,
             /// TODO: use only specific actions
             /// TODO: remove support for legacy spec.actions
-            actions: (this.spec.actions || this.spec.actionTypes) && this.actions,
+            actions: (this.spec.actions || this.spec.actionsUse) && this.actions,
             waitFor: this.waitFor,
             addChangeListener: this.addChangeListener,
             removeChangeListener: this.removeChangeListener,
