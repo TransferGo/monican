@@ -2,7 +2,7 @@
   "name": "monican",
   "version": "1.0.3",
   "description": "A Monican conspiracy",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TransferGo/monican.git"
