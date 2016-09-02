@@ -1,6 +1,6 @@
 {
   "name": "monican",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Monican conspiracy",
   "main": "index.js",
   "repository": {
@@ -8,9 +8,9 @@
     "url": "git+https://github.com/TransferGo/monican.git"
   },
   "scripts": {
-      "compile": "rimraf lib/* && babel src -d lib",
-      "prepublish": "npm run compile",
-      "publish-patch": "npm version patch && git push --follow-tags"
+    "compile": "rimraf lib/* && babel src -d lib",
+    "prepublish": "npm run compile",
+    "publish-patch": "npm version patch && git push --follow-tags"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
