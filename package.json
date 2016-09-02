@@ -10,7 +10,7 @@
   "scripts": {
       "compile": "rimraf lib/* && babel src -d lib",
       "prepublish": "npm run compile",
-      "publish-patch" "npm version patch && git push --follow-tags"
+      "publish-patch": "npm version patch && git push --follow-tags"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
