@@ -61,15 +61,19 @@ export default function createView(spec) {
 
         render() {
 
-            if (!render) {
-                return this.props.children;
-            }
-
             try {
-                return render.apply(this, arguments);
+                return (render
+                    ? render.apply(this, arguments)
+                    : this.props.children
+                );
             } catch (err) {
-                const message = spec.displayName + ' rendering error:';
-                console && console.error && console.error(message, err);
+                console && console.error && console.error(
+                    spec.displayName,
+                    'rendering',
+                    err.name + ':',
+                    err,
+                    err.stack
+                );
                 return (
                     <div style={ renderErrorStyle }>
                         Oops... something went wrong.
