@@ -24,15 +24,16 @@ export default class ChangeEmitter {
     }
 
     emitChange(payload) {
-
         for (const listener of this.changeListeners) {
-            try {
-                listener(payload);
-            } catch (err) {
-                console.error(
-                    'Error propagating Store changes to a View(?)',
-                    err, payload, listener,
-                );
+            if (this.changeListeners.hasOwnProperty(listener)) {
+                try {
+                    listener(payload);
+                } catch (err) {
+                    console.error(
+                        'Error propagating Store changes to a View(?)',
+                        err, payload, listener,
+                    );
+                }
             }
         }
     }

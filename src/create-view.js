@@ -52,7 +52,10 @@ export default function createView(spec) {
                 };
                 this.actions = {};
                 for (const groupName in mergedActions) {
-                    this.actions[groupName] = this.context.actions[groupName];
+                    if (mergedActions.hasOwnProperty(groupName)) {
+                        this.actions[groupName] = this.context.actions[groupName];
+                    }
+
                 }
             }
 

@@ -59,8 +59,10 @@ class Store extends ChangeEmitter {
         }
 
         for (const k in patch) {
-            if (patch[k] !== this.state[k]) {
-                return this.patchState(patch);
+            if (patch.hasOwnProperty(k)) {
+                if (patch[k] !== this.state[k]) {
+                    return this.patchState(patch);
+                }
             }
         }
     }
@@ -120,18 +122,21 @@ class Store extends ChangeEmitter {
         }
 
         for (const groupName in specHandlers) {
-            for (const actionName in specHandlers[groupName]) {
+            if (specHandlers.hasOwnProperty(groupName)) {
+                for (const actionName in specHandlers[groupName]) {
+                    if (specHandlers[groupName].hasOwnProperty(actionName)) {
+                        const actionId = R.path([groupName, actionName, 'actionId'], this.actions);
 
-                const actionId = R.path([groupName, actionName, 'actionId'], this.actions);
-
-                if (actionId) {
-                    const fn = R.path([groupName, actionName], specHandlers);
-                    actionHandlers[actionId] = fn;
-                } else {
-                    console.error(
-                        'Action', groupName + '.' + actionName,
-                        'not found for store', this.displayName,
-                    );
+                        if (actionId) {
+                            const fn = R.path([groupName, actionName], specHandlers);
+                            actionHandlers[actionId] = fn;
+                        } else {
+                            console.error(
+                                'Action', groupName + '.' + actionName,
+                                'not found for store', this.displayName,
+                            );
+                        }
+                    }
                 }
             }
         }

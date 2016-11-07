@@ -58,15 +58,21 @@ export default function createContext({ displayName, actionsCreate, storesCreate
             this.mediators = {};
 
             for (const name in actionsCreate) {
-                this.actions[name] = createActions(this, name, actionsCreate[name]);
+                if (actionsCreate.hasOwnProperty(name)) {
+                    this.actions[name] = createActions(this, name, actionsCreate[name]);
+                }
             }
 
             for (const name in storesCreate) {
-                this.stores[name] = createStore(this, name, storesCreate[name]);
+                if (storesCreate.hasOwnProperty(name)) {
+                    this.stores[name] = createStore(this, name, storesCreate[name]);
+                }
             }
 
             for (const name in mediators) {
-                this.mediators[name] = createStore(this, name + '_mediator', mediators[name]);
+                if (mediators.hasOwnProperty(name)) {
+                    this.mediators[name] = createStore(this, name + '_mediator', mediators[name]);
+                }
             }
 
             /*
@@ -75,32 +81,45 @@ export default function createContext({ displayName, actionsCreate, storesCreate
             if (this.dispatcher.isDispatching()) {
 
                 for (const name in storesCreate) {
-                    this.stores[name].componentWillMount();
+                    if (storesCreate.hasOwnProperty(name)) {
+                        this.stores[name].componentWillMount();
+                    }
                 }
+
                 for (const name in this.mediators) {
-                    this.mediators[name].componentWillMount();
+                    if (this.mediators.hasOwnProperty(name)) {
+                        this.mediators[name].componentWillMount();
+                    }
                 }
             } else {
                 this.dispatcher.dispatch({ actionId: ACTION_ON_MOUNT_STORES });
             }
 
             for (const name in storesCreate) {
-                connectToStore(this, name, this.stores[name]);
+                if (storesCreate.hasOwnProperty(name)) {
+                    connectToStore(this, name, this.stores[name]);
+                }
             }
         },
 
         componentWillUnmount() {
 
             for (const name in storesCreate) {
-                disconnectFromStore(this, name, this.stores[name]);
+                if (storesCreate.hasOwnProperty(name)) {
+                    disconnectFromStore(this, name, this.stores[name]);
+                }
             }
 
             for (const name in this.mediators) {
-                this.mediators[name].componentWillUnmount();
+                if (this.mediators.hasOwnProperty(name)) {
+                    this.mediators[name].componentWillUnmount();
+                }
             }
 
             for (const name in storesCreate) {
-                this.stores[name].componentWillUnmount();
+                if (storesCreate.hasOwnProperty(name)) {
+                    this.stores[name].componentWillUnmount();
+                }
             }
         },
 
