@@ -1,6 +1,6 @@
 {
   "name": "monican",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Monican conspiracy",
   "main": "lib/index.js",
   "repository": {
