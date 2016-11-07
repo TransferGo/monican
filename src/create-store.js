@@ -1,4 +1,4 @@
-import R from 'ramda';
+import R from './ramda.custom';
 
 import { ACTION_ON_MOUNT_STORES } from './constants';
 import ChangeEmitter from './change-emitter';

@@ -1,4 +1,4 @@
-import R from 'ramda';
+import R from './ramda.custom';
 import React, { PropTypes } from 'react';
 
 

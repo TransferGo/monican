@@ -1,5 +1,5 @@
 import objectAssign from 'object-assign';
-import R from 'ramda';
+import R from './ramda.custom';
 
 
 const SEPARATOR = '/';
