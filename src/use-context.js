@@ -30,7 +30,9 @@ export default function useContext({ displayName, storesUse }, ChildView) {
 
             const { stores } = this.context;
             for (const name in storesUse) {
-                connectToStore(this, name, stores[name]);
+                if (storesUse.hasOwnProperty(name)) {
+                    connectToStore(this, name, stores[name]);
+                }
             }
         },
 
@@ -38,7 +40,9 @@ export default function useContext({ displayName, storesUse }, ChildView) {
 
             const { stores } = this.context;
             for (const name in storesUse) {
-                disconnectFromStore(this, name, stores[name]);
+                if (storesUse.hasOwnProperty(name)) {
+                    disconnectFromStore(this, name, stores[name]);
+                }
             }
         },
 
